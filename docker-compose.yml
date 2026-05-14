@@ -12,3 +12,5 @@ services:
       dockerfile: ai-service/Dockerfile
     ports:
       - "8001:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
