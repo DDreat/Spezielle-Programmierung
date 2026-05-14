@@ -57,3 +57,12 @@ def get_metrics():
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+@app.get("/live")
+def live():
+    return {"status": "alive"}
+
+
+@app.get("/ready")
+def ready():
+    return {"status": "ready"}
