@@ -1,0 +1,14 @@
+services:
+  data-service:
+    build:
+      context: .
+      dockerfile: data-service/Dockerfile
+    ports:
+      - "8000:8000"
+
+  ai-service:
+    build:
+      context: .
+      dockerfile: ai-service/Dockerfile
+    ports:
+      - "8001:8000"
