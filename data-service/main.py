@@ -35,32 +35,32 @@ def load_metrics():
 
                 columns[term].append(int(value))
 
-    results = []
+        results = []
 
-    for term, values in columns.items():
+        for term, values in columns.items():
+            
+            if not values:
+                continue
 
-        if not values:
-            continue
+            mean = sum(values) / len(values)
+            peak = max(values)
 
-        mean = sum(values) / len(values)
-        peak = max(values)
+            first = values[0]
+            last = values[-1]
 
-        first = values[0]
-        last = values[-1]
+            if last > first:
+                trend = "increasing"
+            elif last < first:
+                trend = "decreasing"
+            else:
+                trend = "stable"
 
-        if last > first:
-            trend = "increasing"
-        elif last < first:
-            trend = "decreasing"
-        else:
-            trend = "stable"
-
-        results.append({
-            "name": term,
-            "mean": round(mean, 1),
-            "peak": peak,
-            "trend": trend
-        })
+            results.append({
+                "name": term,
+                "mean": round(mean, 1),
+                "peak": peak,
+                "trend": trend
+            })
 
     return {
         "terms": results
