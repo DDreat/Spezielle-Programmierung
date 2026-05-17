@@ -7,7 +7,8 @@ app = FastAPI()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-DATA_SERVICE_URL = "http://data-service:8000/metrics"
+DATA_SERVICE_URL = os.getenv("DATA_SERVICE_URL")
+MODEL = os.getenv("OPENAI_MODEL")
 
 
 @app.get("/analysis")
@@ -42,7 +43,7 @@ def analyze():
     """
 
     ai_response = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model=MODEL,
         messages=[
             {"role": "user", "content": prompt}
         ]
