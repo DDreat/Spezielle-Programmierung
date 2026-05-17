@@ -3,51 +3,67 @@ import csv
 
 app = FastAPI()
 
+
 def load_metrics():
-    values = []
+    columns = {}
 
     with open('../data/Interest.csv', newline='', encoding='utf-8') as file:
+
         reader = csv.reader(file)
 
+        headers = next(reader)
+
+        terms = headers[1:]
+
+        for term in terms:
+            columns[term] = []
+
         for row in reader:
+
             if not row:
                 continue
 
-            if row[0] == "Time":
-                continue
+            for index, term in enumerate(terms, start=1):
 
-            value = row[1]
+                value = row[index]
 
-            if value == "<1":
-                value = 0
+                if value == "<1":
+                    value = 0
 
-            if value == "":
-                continue
+                if value == "":
+                    continue
 
-            values.append(int(value))
+                columns[term].append(int(value))
 
-    mean = sum(values) / len(values)
-    peak = max(values)
+    results = []
 
-    first = values[0]
-    last = values[-1]
+    for term, values in columns.items():
 
-    if last > first:
-        trend = "increasing"
-    elif last < first:
-        trend = "decreasing"
-    else:
-        trend = "stable"
+        if not values:
+            continue
+
+        mean = sum(values) / len(values)
+        peak = max(values)
+
+        first = values[0]
+        last = values[-1]
+
+        if last > first:
+            trend = "increasing"
+        elif last < first:
+            trend = "decreasing"
+        else:
+            trend = "stable"
+
+        results.append({
+            "name": term,
+            "mean": round(mean, 1),
+            "peak": peak,
+            "trend": trend
+        })
 
     return {
-        "terms": [
-            {
-                "name": "Proteinpulver",
-                "mean": round(mean, 1),
-                "peak": peak,
-                "trend": trend
-            }
-        ]
+        "terms": results
     }
 
 @app.get("/metrics")

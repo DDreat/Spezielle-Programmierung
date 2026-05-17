@@ -30,6 +30,8 @@ def analyze():
     - Trends
     - Auffälligkeiten
     - Unterschiede zwischen Begriffen
+    - Ranking nach Interesse
+    - Vergleich mehrerer Begriffe
 
     Sicherheitsregeln:
     - Erfinde keine Werte.
