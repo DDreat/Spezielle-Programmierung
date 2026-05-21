@@ -39,6 +39,7 @@ Die erste Möglichkeit erfolgt automatisiert über das Skript:
 Alternativ kann die Anwendung auch manuell gestartet werden:
 
 docker compose up --build -d 
+
 kubectl apply -f k8s/
 
 Zur Überprüfung, ob die Anwendung erfolgreich gestartet wurde, können folgende Tests verwendet werden:
