@@ -76,3 +76,17 @@ ebenfalls genutzt werden, allerdings sind die Ergebnisse aufgrund der relativen 
 
 4. Datenanalyse und Ergebnisse – Welche Muster oder Trends konnten Sie erkennen?  
 Gab es auffällige Peaks, Unterschiede oder Entwicklungen? Welche Begriffe haben sich besonders hervorgehoben?
+
+Die Analyse der Google-Trends-Daten zeigt, dass die meisten Suchanfragen im betrachteten Zeitraum relativ konstant geblieben sind. Für Begriffe wie Kreatin, Proteinpulver und Omega 3 konnten nur kleinere Schwankungen erkannt werden, jedoch keine starken Anstiege oder deutlichen Rückgänge im Suchinteresse. Insgesamt ist das Suchverhalten bei diesen Begriffen gleichmäßig und stabil, wodurch kein großer Popularitätsschub oder langfristiger Verfall erkennbar ist.
+
+Besonders hervorgehoben hat sich Vitamin D. Hier konnte kurzfristig ein deutlich stärkeres Suchinteresse beobachtet werden, vor allem ist hier der peak am 5.Mai besonders aufällig wo das Intresse sich fast verdoppelt hat, dadurch hat sich dieser Begriff klar von den anderen Supplements abgesetzt. Whey Protein zeigte dagegen im Vergleich die niedrigsten Werte und war damit der am wenigsten gesuchte Begriff innerhalb des Datensatzes.
+
+5. Visualisierung – Welche Visualisierungen wurden erstellt und warum?  
+Wie helfen diese, die Daten besser zu verstehen? 
+
+6. Herausforderungen und Learnings – Welche technischen oder fachlichen Probleme sind aufgetreten?  
+Wie wurden diese gelöst?  
+Was haben Sie aus dem Projekt gelernt?  
+
+7. Zukunftsvision – Wie könnte Ihr System weiterentwickelt werden?  
+Welche zusätzlichen Daten, Features oder AI-Methoden könnten integriert werden? 
