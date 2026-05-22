@@ -88,5 +88,11 @@ Wie helfen diese, die Daten besser zu verstehen?
 Wie wurden diese gelöst?  
 Was haben Sie aus dem Projekt gelernt?  
 
+Die größte Herausforderung bestand darin, dass das ursprüngliche Programm aus der Vorlesung nur einen einzelnen Begriff aus den CSV-Dateien verarbeiten konnte. Da für das Projekt mehrere Suchbegriffe gleichzeitig analysiert werden sollten, musste die Verarbeitung erweitert werden. Dieses Problem wurde durch den Einsatz von Schleifen gelöst.
+
+Die erste Schleife in der main.py des Data-Services liest die Werte aus der CSV-Datei ein und sortiert diese nach ihren jeweiligen Begriffen. Anschließend verarbeitet eine zweite Schleife die gesammelten Werte weiter, berechnet Kennzahlen wie Mean, Peak und Trend und speichert die Ergebnisse im JSON-Format innerhalb einer Liste. Dadurch können mehrere Begriffe automatisiert analysiert und strukturiert weitergegeben werden.
+
+Aus dem Projekt mitgenommen wurde die Kommunikation zwischen Services über APIs, die Nutzung von KI zur Analyse und Darstellung der Ergebnisse, sowie die Implementierung von Kubernetes zur Überwachung der Services.
+
 7. Zukunftsvision – Wie könnte Ihr System weiterentwickelt werden?  
 Welche zusätzlichen Daten, Features oder AI-Methoden könnten integriert werden? 
