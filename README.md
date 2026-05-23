@@ -33,11 +33,11 @@ Vor dem Start der Anwendung muss ein eigener OpenAI API-Key als Sealed Secret er
 
 kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/latest/download/controller.yaml
 
- Sealed Secrets Controller installieren
+Sealed Secrets Controller installieren
 
- kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
 
-  NGINX Ingress Controller installieren
+NGINX Ingress Controller installieren
 
 kubectl create secret generic ai-api-secret `
   --from-literal=OPENAI_API_KEY=YOUR_AI_KEY `
