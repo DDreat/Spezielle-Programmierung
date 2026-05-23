@@ -113,6 +113,14 @@ Besonders hervorgehoben hat sich Vitamin D. Hier konnte kurzfristig ein deutlich
 5. Visualisierung – Welche Visualisierungen wurden erstellt und warum?  
 Wie helfen diese, die Daten besser zu verstehen? 
 
+Für die Analyse der Google-Trends-Daten wurden zwei zentrale Visualisierungen eingesetzt: ein Vergleich mehrerer Begriffe sowie ein Ranking nach durchschnittlichem Suchinteresse. Beide Darstellungen dienen dazu, die relativen Unterschiede zwischen den untersuchten Supplements schnell und übersichtlich erkennbar zu machen.
+
+Der Vergleich mehrerer Begriffe ermöglicht es, die Entwicklungen von Proteinpulver, Kreatin, Whey Protein, Vitamin D und Omega 3 direkt gegenüberzustellen.
+
+Das Ranking nach Interesse fasst die Daten zusätzlich zusammen und zeigt auf einen Blick die relative Beliebtheit der einzelnen Suchbegriffe innerhalb des Datensatzes. Diese Darstellung erleichtert die schnelle Einordnung, welcher Begriff insgesamt am häufigsten gesucht wurde, ohne die Zeitreihen im Detail betrachten zu müssen.
+
+In Kombination ermöglichen beide Visualisierungen eine neue Sichtweise für die Interpretation der Daten, da Trends, Unterschiede und Prioritäten unmittelbar erkennbar werden.
+
 6. Herausforderungen und Learnings – Welche technischen oder fachlichen Probleme sind aufgetreten?  
 Wie wurden diese gelöst?  
 Was haben Sie aus dem Projekt gelernt?  
@@ -126,7 +134,7 @@ Aus dem Projekt mitgenommen wurde die Kommunikation zwischen Services über APIs
 7. Zukunftsvision – Wie könnte Ihr System weiterentwickelt werden?  
 Welche zusätzlichen Daten, Features oder AI-Methoden könnten integriert werden? 
 
-Das System könnte in Zukunft erweitert werden, indem die Daten nicht mehr manuell als CSV-Dateien importiert werden müssen. Stattdessen könnte die Anwendung automatisch Daten von Google Trends abrufen, verarbeiten und analysieren. Dadurch wäre eine kontinuierliche und aktuellere Auswertung möglich.
+Das System könnte in Zukunft erweitert werden, indem die Daten nicht mehr manuell als CSV-Dateien importiert werden müssen. Stattdessen könnte die Anwendung automatisch Daten von Google Trends abrufen, verarbeiten und analysieren.
 
 Zusätzlich könnten weitere AI-Methoden integriert werden, um externe Ereignisse oder Entwicklungen zu erkennen, die Veränderungen im Suchinteresse beeinflussen. Beispielsweise könnte die KI Nachrichten, Social-Media-Trends oder saisonale Ereignisse analysieren und daraus mögliche Ursachen für steigende oder fallende Suchanfragen ableiten.
 
