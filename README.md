@@ -29,7 +29,15 @@ Ein direkter Vergleich mit anderen Datensätzen oder die Ableitung konkreter Suc
 3. Anwendung und Nutzung – Wie wird die Anwendung gestartet (How to start, Step by step)?  
 Wie wird Ihre Anwendung genutzt? Wer sind die potenziellen Nutzer?
 
-Vor dem Start der Anwendung muss ein eigener OpenAI API-Key als Sealed Secret erstellt werden.
+Vor dem Start der Anwendung muss ein eigener OpenAI API-Key als Sealed Secret erstellt werden, sowie die .env Datei angepasst werden.
+
+kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/latest/download/controller.yaml
+
+ Sealed Secrets Controller installieren
+
+ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+
+  NGINX Ingress Controller installieren
 
 kubectl create secret generic ai-api-secret `
   --from-literal=OPENAI_API_KEY=YOUR_AI_KEY `
