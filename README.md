@@ -31,7 +31,9 @@ Wie wird Ihre Anwendung genutzt? Wer sind die potenziellen Nutzer?
 
 Vor dem Start der Anwendung muss ein eigener OpenAI API-Key als Sealed Secret erstellt werden, sowie die .env Datei erstellt werden.
 
+```bash
 kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/latest/download/controller.yaml
+```
 
 Sealed Secrets Controller installieren
 
