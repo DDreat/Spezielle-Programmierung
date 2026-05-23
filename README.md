@@ -36,73 +36,87 @@ kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/latest/
 ```
 
 Sealed Secrets Controller installieren
-
+```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+```
 
 NGINX Ingress Controller installieren
 
 Erstellen sie die .env Datei im Root-Ordner dieses Projekt und fügen sie hinzu
-
+```bash
 OPENAI_API_KEY=YOUR_API_KEY
 DATA_SERVICE_URL=http://data-service:8000/metrics
 OPENAI_MODEL=gpt-4o-mini
+```
 
 Diese Datei darf nur Lokal gespeichert sein
 
 Erstellen sie eine unverschlüsselte ai-api-secrect
-
+```bash
 kubectl create secret generic ai-api-secret `
   --from-literal=OPENAI_API_KEY=YOUR_AI_KEY `
   --dry-run=client -o yaml > k8s/ai-api-secret.yaml
+```
 
 Anschließend wird daraus ein verschlüsseltes Sealed Secret erzeugt:
-
+```bash
 Get-Content k8s/ai-api-secret.yaml | kubeseal --format yaml > k8s/ai-api-sealed-secret.yaml
+```
 
 unverschlüsseltes Secret löschen
-
+```bash
 Remove-Item k8s/ai-api-secret.yaml
+```
 
 Das Programm kann über zwei Möglichkeiten gestartet werden. Bei beiden Varianten muss zunächst in den Root-Ordner des Projekts gewechselt werden. 
 
 Die erste Möglichkeit erfolgt automatisiert über das Skript:
-
+```bash
 bash deploy.sh
+```
 
 Alternativ kann die Anwendung auch manuell gestartet werden:
-
+```bash
 docker compose up --build -d 
-
+```
+```bash
 kubectl apply -f k8s/
+```
 
 Zur Überprüfung, ob die Anwendung erfolgreich gestartet wurde, können folgende Tests verwendet werden:
-
+```bash
 kubectl get pods
+```
 
 Überprüft, ob die Pods gestartet wurden.
-
+```bash
 kubectl get services
+```
 
 Zeigt die laufenden Services an.
 
 Zusätzlich stehen folgende Endpunkte zur Verfügung:
-
+```bash
 http://ai.localhost/live
+```
 
 Überprüft, ob die AI erreichbar ist.
-
+```bash
 http://ai.localhost/ready
+```
 
 Überprüft, ob der Data-Service erreichbar ist.
-
+```bash
 http://ai.localhost/analysis
+```
 
 Gibt die Analyse inklusive Interpretation und Visualisierung aus.
 
 Zum Beenden der Anwendung können folgende Befehle verwendet werden:
-
+```bash
 docker compose down
 kubectl delete -f k8s/
+```
 
 Potenzielle Nutzer sind aktuell hauptsächlich Entwickler, die das System weiterentwickeln oder analysieren möchten. Für den Vertrieb oder Marktanalysen kann die Anwendung 
 ebenfalls genutzt werden, allerdings sind die Ergebnisse aufgrund der relativen Daten von Google Trends nur eingeschränkt aussagekräftig und vor allem für Vergangenheitsanalysen geeignet.
