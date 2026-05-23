@@ -29,12 +29,25 @@ Ein direkter Vergleich mit anderen Datensätzen oder die Ableitung konkreter Suc
 3. Anwendung und Nutzung – Wie wird die Anwendung gestartet (How to start, Step by step)?  
 Wie wird Ihre Anwendung genutzt? Wer sind die potenziellen Nutzer?
 
+Vor dem Start der Anwendung muss ein eigener OpenAI API-Key als Sealed Secret erstellt werden.
+
+kubectl create secret generic ai-api-secret `
+  --from-literal=OPENAI_API_KEY=YOUR_AI_KEY `
+  --dry-run=client -o yaml > k8s/ai-api-secret.yaml
+
+Anschließend wird daraus ein verschlüsseltes Sealed Secret erzeugt:
+
+Get-Content k8s/ai-api-secret.yaml | kubeseal --format yaml > k8s/ai-api-sealed-secret.yaml
+
+unverschlüsseltes Secret löschen
+
+Remove-Item k8s/ai-api-secret.yaml
+
 Das Programm kann über zwei Möglichkeiten gestartet werden. Bei beiden Varianten muss zunächst in den Root-Ordner des Projekts gewechselt werden. 
-Zusätzlich muss vor dem Start in der .env-Datei im Root-Ordner der OpenAI-Schlüssel eingetragen werden, indem your ai key durch den eigenen API-Key ersetzt wird.
 
 Die erste Möglichkeit erfolgt automatisiert über das Skript:
 
-./deploy.sh
+bash deploy.sh
 
 Alternativ kann die Anwendung auch manuell gestartet werden:
 
@@ -96,3 +109,11 @@ Aus dem Projekt mitgenommen wurde die Kommunikation zwischen Services über APIs
 
 7. Zukunftsvision – Wie könnte Ihr System weiterentwickelt werden?  
 Welche zusätzlichen Daten, Features oder AI-Methoden könnten integriert werden? 
+
+Das System könnte in Zukunft erweitert werden, indem die Daten nicht mehr manuell als CSV-Dateien importiert werden müssen. Stattdessen könnte die Anwendung automatisch Daten von Google Trends abrufen, verarbeiten und analysieren. Dadurch wäre eine kontinuierliche und aktuellere Auswertung möglich.
+
+Zusätzlich könnten weitere AI-Methoden integriert werden, um externe Ereignisse oder Entwicklungen zu erkennen, die Veränderungen im Suchinteresse beeinflussen. Beispielsweise könnte die KI Nachrichten, Social-Media-Trends oder saisonale Ereignisse analysieren und daraus mögliche Ursachen für steigende oder fallende Suchanfragen ableiten.
+
+Eine weitere mögliche Erweiterung wäre die Untersuchung, ob sich aus den Daten Aussagen über zukünftige Entwicklungen ableiten lassen. Dabei könnte geprüft werden, ob Trends aus der Vergangenheit Hinweise auf zukünftige Nachfrage geben.
+
+Außerdem könnte analysiert werden, ob ein Zusammenhang zwischen dem Suchinteresse bei Google Trends und tatsächlichen Verkaufszahlen besteht. Dadurch könnte das System langfristig auch für Marktanalysen oder Prognosen genutzt werden.

@@ -14,7 +14,7 @@ echo "AI Image: $AI_IMAGE"
 echo "---------------------------------"
 
 echo "Baue Docker Images..."
-docker compose build
+docker compose up --build -d 
 
 echo "Passe Kubernetes Image-Namen an..."
 sed -i.bak "s|image: .*data-service.*|image: ${DATA_IMAGE}|g" k8s/data-service-deployment.yaml
