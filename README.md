@@ -51,7 +51,7 @@ OPENAI_MODEL=gpt-4o-mini
 
 Diese Datei darf nur Lokal gespeichert sein
 
-Erstellen sie eine unverschlüsselte ai-api-secrect
+Erstellen sie ein unverschlüsseltes ai-api-secrect.yaml
 ```bash
 kubectl create secret generic ai-api-secret `
   --from-literal=OPENAI_API_KEY=YOUR_AI_KEY `
